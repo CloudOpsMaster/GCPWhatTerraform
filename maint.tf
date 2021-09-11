@@ -125,7 +125,7 @@ resource "google_compute_instance" "loadbalanser" {
       #nat_ip = google_compute_address.static.address
     }
   }
-  metadata_startup_script = templatefile("loadbalanser.sh.tpl",
+  metadata_startup_script = templatefile("${path.module}/loadbalanser.tpl",
     {
       FRONTEND_1 = var.front1_ip,
       FRONTEND_2 = var.front2_ip,
